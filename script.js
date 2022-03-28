@@ -29,7 +29,7 @@ window.addEventListener('scroll', function () {
   }
 })
 
-/*  */
+/* Testimonial carousel slide swiper */
 const swiper = new Swiper('.swiper', {
   slidesPerView: 1,
   pagination: {
@@ -37,4 +37,33 @@ const swiper = new Swiper('.swiper', {
   },
   mousewheel: true,
   keyboard: true
+})
+
+/* scrollReveal: Mostrar elementos quando der scroll na página*/
+const scrollReveal = ScrollReveal({
+  origin: 'top',
+  distance: '30px',
+  duration: 700,
+  reset: true
+})
+
+scrollReveal.reveal(
+  `#home .text, #home .image,
+  #about .image, #about .text,
+  #services header, #services .card,
+  #testimonials header, #testimonials .testimonial,
+  #contact .text, #contact .links,
+  footer .brand, footer .social
+  `,
+  { interval: 100 }
+)
+
+/* botao voltar para o topo .back-to-top */
+const backToTopButton = document.querySelector('.back-to-top')
+window.addEventListener('scroll', function () {
+  if (this.window.scrollY >= 700) {
+    backToTopButton.classList.add('show')
+  } else {
+    backToTopButton.classList.remove('show')
+  }
 })
