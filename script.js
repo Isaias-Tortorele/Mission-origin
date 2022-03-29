@@ -8,7 +8,7 @@ for (const element of toggle) {
   })
 }
 
-/*  */
+/*  Quando clicar em um item do menu, esconder o menu*/
 const links = document.querySelectorAll('nav ul li a')
 
 for (const link of links) {
@@ -18,25 +18,31 @@ for (const link of links) {
 }
 
 /* colocar sombra no header da pagina quando der scroll */
-const header = document.querySelector('#header')
-const navHeight = header.offsetHeight
+function changeHeaderWhenScroll() {
+  const header = document.querySelector('#header')
+  const navHeight = header.offsetHeight
 
-window.addEventListener('scroll', function () {
   if (window.scrollY >= navHeight) {
     header.classList.add('scroll')
   } else {
     header.classList.remove('scroll')
   }
-})
+}
 
-/* Testimonial carousel slide swiper */
+/* Testimonial carousel slide com swiper */
 const swiper = new Swiper('.swiper', {
   slidesPerView: 1,
   pagination: {
     el: '.swiper-pagination'
   },
   mousewheel: true,
-  keyboard: true
+  keyboard: true,
+  breakpoints: {
+    767: {
+      slidesPerView: 2,
+      setWrapperSize: true
+    }
+  }
 })
 
 /* scrollReveal: Mostrar elementos quando der scroll na página*/
@@ -59,11 +65,18 @@ scrollReveal.reveal(
 )
 
 /* botao voltar para o topo .back-to-top */
-const backToTopButton = document.querySelector('.back-to-top')
-window.addEventListener('scroll', function () {
-  if (this.window.scrollY >= 700) {
+function backToTop() {
+  const backToTopButton = document.querySelector('.back-to-top')
+
+  if (window.scrollY >= 700) {
     backToTopButton.classList.add('show')
   } else {
     backToTopButton.classList.remove('show')
   }
+}
+
+/* When Scroll */
+window.addEventListener('scroll', function () {
+  changeHeaderWhenScroll()
+  backToTop()
 })
