@@ -4,4 +4,4 @@
 
 <img src="assets/foto-git.png" width="800px" height="auto">
 
-[Link Acesso](https://isaias-tortorele.github.io/Mission-origin/index.html)
+[Link Acesso](https://isaias-tortorele.github.io/Mission-origin/)
